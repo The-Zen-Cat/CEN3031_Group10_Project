@@ -9,7 +9,7 @@
      "client": "cd client && yarn start",
      "server": "nodemon server.js",
      "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-     "test": "nodemon server.js"
+     "test": "node test.js"
     },
   "dependencies": {
     "express": "^4.18.1"
