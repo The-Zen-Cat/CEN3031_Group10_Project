@@ -1,21 +1,8 @@
 {
   "name": "CEN3031_Group10_Project",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/The-Zen-Cat/CEN3031_Group10_Project/",
-  "author": "Zachary Schirm <zaks@ufl.edu>",
-  "license": "MIT",
-  "scripts": {
-    "client": "cd client && yarn start",
-    "server": "nodemon server.js",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-    "test": "node test.js"
-  },
-  "dependencies": {
-    "express": "^4.18.1"
-  },
-  "devDependencies": {
-    "concurrently": "^7.4.0",
-    "nodemon": "^2.0.20"
-  }
+  "packageManager": "yarn@3.2.4",
+  "workspaces": [
+    "server",
+    "client"
+  ]
 }
