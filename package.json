@@ -4,5 +4,11 @@
   "workspaces": [
     "server",
     "client"
-  ]
+  ],
+  "scripts": {
+    "start": "concurrently \"yarn workspace server start\" \"yarn workspace client start\""
+  },
+  "devDependencies": {
+    "concurrently": "^7.5.0"
+  }
 }
