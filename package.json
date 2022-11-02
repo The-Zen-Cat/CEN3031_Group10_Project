@@ -18,7 +18,7 @@
     "server": "nodemon server/index.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test:react": "react-scripts test",
+    "test:ci": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install"
   },
