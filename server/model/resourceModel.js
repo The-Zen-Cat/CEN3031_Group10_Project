@@ -19,7 +19,8 @@ const resourceModel = mongoose.Schema(
     acceptsWomen: Boolean,
     isReligious: Boolean,
     description: String,
-    photoURL: String //will need to find a place to stash some photos and link - might be a bit tricky
+    photoURL: String,
+    websiteURL: String
   },
   {
     timestamps: true
