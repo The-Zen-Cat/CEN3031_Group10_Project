@@ -2,18 +2,18 @@ const mongoose = require('mongoose');
 
 const resourceModel = mongoose.Schema(
   {
-    name: String,
+    name: { type: String, required: true },
     isFood: Boolean,
     isShelter: Boolean,
     isClothing: Boolean,
     isHealthcare: Boolean,
     //can add things like Boolean has breakfast, lunch, dinner hours etc. and have hours specific to those
-    opentime: Number,
-    closetime: Number,
-    addressStreet: String,
-    addressCity: String,
-    addressState: String,
-    addressZip: Number,
+    opentime: String,
+    closetime: String,
+    addressStreet: { type: String, required: true },
+    addressCity: { type: String, required: true },
+    addressState: { type: String, required: true },
+    addressZip: { type: Number, required: true },
     phoneNumber: String,
     acceptsMinors: Boolean,
     acceptsAdults: Boolean,

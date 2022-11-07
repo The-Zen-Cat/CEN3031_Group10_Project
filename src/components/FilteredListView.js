@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-require axios from 'axios';
+import axios from 'axios';
 //import ResourceItem from '../components/ResourceItem';
 //import Card from '../UI/Card';
 import List from '@mui/material/List';
