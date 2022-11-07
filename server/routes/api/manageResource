@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const { addResource, getAllResources } = require('../../controllers/ResourceController');
+
+//get resources api
+router.post('/', addResource); //parameters needs to be passed as an object in body (e.g. {"food" : "yes", "shelter" : "no"})
+
+//get list of all resources
+router.get('/', getAllResources);
+
+module.exports = router;
