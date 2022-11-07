@@ -7,9 +7,7 @@ const resourceModel = mongoose.Schema(
     isShelter: Boolean,
     isClothing: Boolean,
     isHealthcare: Boolean,
-    //can add things like Boolean has breakfast, lunch, dinner hours etc. and have hours specific to those
-    opentime: String,
-    closetime: String,
+    openHours: [String],
     addressStreet: { type: String, required: true },
     addressCity: { type: String, required: true },
     addressState: { type: String, required: true },
