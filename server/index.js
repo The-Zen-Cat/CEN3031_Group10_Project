@@ -1,11 +1,12 @@
 //initialize the things for .env variable TODO: THIS IS NOT WORKING
 const dotenv = require('dotenv');
-dotenv.config();
+dotenv.config({ path: './sconfig.env' });
 
 //nodemon installed for easy server refreshes!
 const express = require('express'); //bring in express
 const path = require('path');
 const logger = require('./middleware/logger');
+// eslint-disable-next-line no-unused-vars
 const colors = require('colors'); //this actually is used in errorMiddleWare
 const connectDB = require('./config/db');
 var cors = require('cors');

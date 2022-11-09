@@ -4,9 +4,11 @@ const ResourceModel = require('../model/resourceModel'); //change this
 
 //When using mongoose you get back promise//need to use async
 
-// @desc getFilteredList
-// @route GET /api/members
-// @access Public
+/**
+ * @desc getFilteredList
+ * @route GET /api/members
+ * @access Public
+ */
 const getFilteredList = asyncHandler(async (req, res) => {
   console.log(req);
   console.log(req.query);
@@ -17,9 +19,11 @@ const getFilteredList = asyncHandler(async (req, res) => {
   res.status(200).json(resources);
 });
 
-// @desc addResource
-// @route POST /api/addResource
-// @access Private
+/**
+ * @desc addResource
+ * @route POST /api/addResource
+ * @access Private
+ */
 const addResource = asyncHandler(async (req, res) => {
   console.log(req.body);
   const newResource = await ResourceModel.create({
@@ -28,8 +32,7 @@ const addResource = asyncHandler(async (req, res) => {
     isShelter: req.body.isShelter,
     isClothing: req.body.isClothing,
     isHealthcare: req.body.isHealthcare,
-    opentime: req.body.opentime,
-    closetime: req.body.closetime,
+    openHours: req.body.openHours,
     addressStreet: req.body.addressStreet,
     addressCity: req.body.addressCity,
     addressState: req.body.addressState,
@@ -41,7 +44,8 @@ const addResource = asyncHandler(async (req, res) => {
     acceptsWomen: req.body.acceptsWomen,
     isReligious: req.body.isReligious,
     description: req.body.description,
-    photoURL: req.body.photoURL
+    photoURL: req.body.photoURL,
+    websiteURL: req.body.websiteURL
   });
 
   res.status(200).json(newResource);
