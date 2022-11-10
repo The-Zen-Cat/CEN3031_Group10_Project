@@ -6,8 +6,9 @@ import SignUp from './components/signup';
 import LogIn from './components/login';
 import Home from './components/home';
 import About from './components/about';
+import {Helmet} from 'react-helmet';
 
-// it works! start making it look nice. And it needs to default to the home page, may not be.
+// UF Color Pallette: https://www.uff.ufl.edu/toolkit/branding-style/colors/
 
 function App() {
   return (
@@ -19,20 +20,10 @@ function App() {
         <Route path = "SignUp" element = {<SignUp />} />
         <Route path = "LogIn" element = {<LogIn />} />
       </Routes>
-      <div
-        className="head"
-        style={{
-        width: "fit-content",
-        margin: "auto",
-        }}
-      >
-        <h1
-        style={{
-          color: "orange",
-        }}
-        >
-        Picture a Great Website Here!
-        </h1>
+      <div className="application">
+          <Helmet>
+              <style>{'body { background-color: rgb(137,207,240,.4); }'}</style>
+          </Helmet>
       </div>
     </>
   );
