@@ -1,0 +1,63 @@
+const { request } = require('express');
+const asyncHandler = require('express-async-handler');
+const ResourceModel = require('../model/resourceModel'); //change this
+
+//When using mongoose you get back promise//need to use async
+
+/**
+ * @desc getFilteredList
+ * @route GET /api/members
+ * @access Public
+ */
+const getFilteredList = asyncHandler(async (req, res) => {
+  console.log(req);
+  console.log(req.query);
+  console.log('getting filtered list');
+  var findOptions = req.query;
+  console.log(findOptions.paramsArray);
+  const resources = await ResourceModel.find(findOptions.paramsArray);
+  res.status(200).json(resources);
+});
+
+/**
+ * @desc addResource
+ * @route POST /api/addResource
+ * @access Private
+ */
+const addResource = asyncHandler(async (req, res) => {
+  console.log(req.body);
+  const newResource = await ResourceModel.create({
+    name: req.body.name,
+    isFood: req.body.isFood,
+    isShelter: req.body.isShelter,
+    isClothing: req.body.isClothing,
+    isHealthcare: req.body.isHealthcare,
+    openHours: req.body.openHours,
+    addressStreet: req.body.addressStreet,
+    addressCity: req.body.addressCity,
+    addressState: req.body.addressState,
+    addressZip: req.body.addressZip,
+    phoneNumber: req.body.phoneNumber,
+    acceptsMinors: req.body.acceptsMinors,
+    acceptsAdults: req.body.acceptsAdults,
+    acceptsMen: req.body.acceptsMen,
+    acceptsWomen: req.body.acceptsWomen,
+    isReligious: req.body.isReligious,
+    description: req.body.description,
+    photoURL: req.body.photoURL,
+    websiteURL: req.body.websiteURL
+  });
+
+  res.status(200).json(newResource);
+});
+
+const getAllResources = asyncHandler(async (req, res) => {
+  const resources = await ResourceModel.find();
+  res.status(200).json(resources);
+});
+
+module.exports = {
+  getFilteredList,
+  getAllResources,
+  addResource
+};
