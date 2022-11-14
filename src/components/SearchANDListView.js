@@ -13,7 +13,17 @@ function SearchANDListView() {
   const [isreligiousCheckState, setisreligiousCheckState] = useState(false);
   const [typeOService, settypeOService] = useState('All');
   const [newSearch, setnewSearch] = useState(0);
+  const [zipCode, setZipCode] = useState(0);
+  const [zipCode2, setZip2] = useState(0);
   //need to pass up state
+
+  const setZip = (value) => {
+    setZipCode(value);
+  };
+
+  const setZip22 = (value) => {
+    setZip2(value);
+  };
 
   const searchNameChange = (eventval) => {
     setnameSearchVal(eventval);
@@ -67,6 +77,9 @@ function SearchANDListView() {
   return (
     <div>
       <SearchComponent
+        setZip2={setZip2}
+        googleZip={zipCode}
+        setZip={setZip}
         menCheckState={menCheckState}
         womenCheckState={womenCheckState}
         childrenCheckState={childrenCheckState}
@@ -84,6 +97,10 @@ function SearchANDListView() {
         ononSearchZipChange={onSearchZipChange}
       />
       <FilteredListView
+        zipCode2={zipCode2}
+        setZip={setZip}
+        setZip22={setZip22}
+        zipCode={zipCode}
         menCheckState={menCheckState}
         womenCheckState={womenCheckState}
         childrenCheckState={childrenCheckState}
