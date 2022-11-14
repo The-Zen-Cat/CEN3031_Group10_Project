@@ -30,7 +30,7 @@ export default function FilteredListView(propss) {
       lon = position.coords.longitude;
       axios
         .get(
-          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key='
+          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=`
           {}
         )
         .then((response) => {
