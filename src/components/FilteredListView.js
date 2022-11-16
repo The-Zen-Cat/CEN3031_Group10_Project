@@ -15,26 +15,57 @@ export default function FilteredListView(propss) {
   const didMount = React.useRef(false);
   const [resArray, setresArray] = useState([1, 2, 3]);
   const [isLoading, setLoading] = useState(true);
-  // var resourceArray = [];
+
   React.useEffect(() => {
     if (!didMount.current) {
       didMount.current = true;
+      console.log('in conditional??');
       return;
     }
+    console.log('why twice??');
+    var lat;
+    var lon;
+    navigator.geolocation.getCurrentPosition(function (position) {
+      lat = position.coords.latitude;
+      lon = position.coords.longitude;
+      axios
+        .get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=`, {})
+        .then((response) => {
+          console.log(response);
+          console.log(response.data.results[4].address_components[0].long_name);
+          propss.setZip(response.data.results[4].address_components[0].long_name);
+          propss.setZip22(response.data.results[4].address_components[0].long_name);
+
+          //console.log(zipCode);
+        });
+      //GET REQUEST:
+      //
+    });
+  }, [propss.zipCode2]);
+  // var resourceArray = [];
+  React.useEffect(() => {
+    if (!didMount.current || propss.zipCode === 0) {
+      didMount.current = true;
+      return;
+    }
+    var paramsArray = {};
+    paramsArray.addressZip = parseInt(propss.zipCode);
+    console.log(paramsArray);
     axios
       .get(`http://localhost:3001/api/filterResources/`, {
-        params: {} //TODO - THE DEFAULT FOR THIS SHOULD BE ZIP CODE (LOCATION BASED IN BROWSER)
+        params: { paramsArray } //TODO - THE DEFAULT FOR THIS SHOULD BE ZIP CODE (LOCATION BASED IN BROWSER)
       })
       .then((response) => {
+        console.log('we got to the place');
         setresArray([]);
         for (let i = 0; i < response.data.length; i++) {
           setresArray((prevArray) => {
             return [response.data[i], ...prevArray];
           });
-          setLoading(false);
         }
+        setLoading(false);
       });
-  }, []);
+  }, [propss.zipCode2]);
 
   React.useEffect(() => {
     console.log('in second effect land');

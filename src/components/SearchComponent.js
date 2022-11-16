@@ -11,9 +11,18 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
+import InputAdornment from '@mui/material/InputAdornment';
 import './SearchComponent.css';
+//import axios from 'axios';
 
 export default function SearchComponent(propss) {
+  const stopEnter = (event) => {
+    if (event.keyCode === 13) {
+      //13 is the key code for Enter
+      event.preventDefault();
+      //Here you can even write the logic to select the value from the drop down or something.
+    }
+  };
   return (
     <div>
       <div className="searchstyle">
@@ -32,6 +41,7 @@ export default function SearchComponent(propss) {
               onChange={(event) => {
                 propss.onsearchNameChange(event.target.value);
               }}
+              onKeyDown={stopEnter}
             />
           </Box>
           <Box
@@ -42,12 +52,22 @@ export default function SearchComponent(propss) {
             noValidate
             autoComplete="off">
             <TextField
-              id="standard-basic"
-              label="Enter ZipCode"
+              id="filled-start-adornment"
+              InputProps={{
+                startAdornment: <InputAdornment position="start">ZipCode:</InputAdornment>
+              }}
+              value={propss.googleZip} //change to google maps zip
+              label="Search by ZipCode"
               variant="standard"
               onChange={(event) => {
                 propss.ononSearchZipChange(event.target.value);
+                propss.setZip(event.target.value);
               }}
+              onKeyPress={(event) => {
+                if (event.key === 'Enter') propss.ononSearchZipChange(event.target.value);
+                propss.onhandleSearchClick;
+              }}
+              onKeyDown={stopEnter}
             />
           </Box>
         </Stack>
