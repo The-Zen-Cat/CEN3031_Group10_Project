@@ -14,11 +14,13 @@ import MenuItem from '@mui/material/MenuItem';
 import HouseIcon from '@mui/icons-material/House';
 import gatorlogo from './images/gatorlogo.jpg';
 import { useState } from 'react';
+import Link from '@mui/material/Link';
 
-const pages = ['SignUp', 'About'];
-const loggedin = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Sign Up', 'About'];
+const loggedin = ['Dashboard', 'Account', 'Logout'];
 const loggedout = ['Log In'];
-// Have Log In when user not logged in, and Account, Dashboard, Logout when logged in
+// TODO: Behavior when user clicks Logout. Should go to homepage, but also change user state.
+
 // Code for a drop down NavMenu is in here but not being used
 
 function NavBar() {
@@ -42,12 +44,6 @@ function NavBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
-  //Need a function like this that takes in path and navigates to page to put in onClick of menubar
-  //this calls handleClose at end?
-  //const goTo = (path) => {
-
-  //}
 
   return (
     <AppBar position="sticky" style={{ background: '#fb6502' }}>
@@ -158,13 +154,27 @@ function NavBar() {
                 onClose={handleCloseUserMenu}>
                 {token 
                 ? loggedin.map((loggedin) => (
-                  <MenuItem href={`/${loggedin}`} key={loggedin} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{loggedin}</Typography>
+                  <MenuItem key={loggedin} onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">
+                      <Link 
+                        href={`/${loggedin}`} 
+                        sx = {{color: 'black'}}
+                        underline = "none">
+                          {loggedin}
+                        </Link>
+                    </Typography>
                   </MenuItem> 
                 ))
                 : loggedout.map((loggedout) => (
-                  <MenuItem key={loggedin} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{loggedout}</Typography>
+                  <MenuItem key={loggedout} onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">
+                      <Link 
+                        href={`/${loggedout}`} 
+                        sx = {{color: 'black'}}
+                        underline = "none">
+                          {loggedout}
+                        </Link>
+                    </Typography>
                   </MenuItem> 
                 ))}
                 
