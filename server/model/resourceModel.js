@@ -20,8 +20,10 @@ const resourceModel = mongoose.Schema(
     isReligious: Boolean,
     description: String,
     photoURL: String,
-    websiteURL: String
+    URL: String,
+    mapsID: String
   },
+  { collection: 'real_resources' },
   {
     timestamps: true
   }

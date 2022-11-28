@@ -45,7 +45,7 @@ const addResource = asyncHandler(async (req, res) => {
     isReligious: req.body.isReligious,
     description: req.body.description,
     photoURL: req.body.photoURL,
-    websiteURL: req.body.websiteURL
+    URL: req.body.websiteURL
   });
 
   res.status(200).json(newResource);
