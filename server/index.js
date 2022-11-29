@@ -9,7 +9,16 @@ const logger = require('./middleware/logger');
 // eslint-disable-next-line no-unused-vars
 const colors = require('colors'); //this actually is used in errorMiddleWare
 const connectDB = require('./config/db');
+const MongoStore = require('connect-mongo');
 var cors = require('cors');
+
+/**
+ * basic session implementation basic
+ * @todo clean this up
+ */
+const oneDay = 1000 * 60 * 60 * 24;
+const session = require('express-session');
+const sessionStore = MongoStore.create({ mongoUrl: process.env.MONGO_URI });
 
 connectDB();
 
@@ -30,6 +39,18 @@ app.use(cors());
 //Url Encoded Data Middleware
 app.use(express.urlencoded({ extended: false }));
 
+//App Session
+app.use(
+  session({
+    secret: 'homelesshelpersecret',
+    resave: false,
+    saveUninitialized: true,
+    store: sessionStore,
+    cookie: {
+      maxAge: oneDay
+    }
+  })
+);
 /*
   API routes
 */
