@@ -1,7 +1,10 @@
 import * as React from 'react';
 import SearchComponent from './SearchComponent';
-import FilteredListView from './FilteredListView';
+//import FilteredListView from './FilteredListView';
+import FilteredListCards from './FilteredListCards';
 import { useState } from 'react';
+//import { Wrapper, Status } from '@googlemaps/react-wrapper';
+//import Grid from '@mui/material/Unstable_Grid2';
 
 function SearchANDListView() {
   const [nameSearchVal, setnameSearchVal] = useState('');
@@ -15,14 +18,25 @@ function SearchANDListView() {
   const [newSearch, setnewSearch] = useState(0);
   const [zipCode, setZipCode] = useState(0);
   const [zipCode2, setZip2] = useState(0);
+  const [printResults, setPrintResults] = useState(false);
+  const [canPrint, setCanPrint] = useState(false);
   //need to pass up state
 
   const setZip = (value) => {
     setZipCode(value);
+    setzipSearchVal(value);
+  };
+
+  const printButtonTrue = () => {
+    setCanPrint(true);
+  };
+  const printButtonFalse = () => {
+    setCanPrint(false);
   };
 
   const setZip22 = (value) => {
     setZip2(value);
+    setzipSearchVal(value);
   };
 
   const searchNameChange = (eventval) => {
@@ -74,29 +88,43 @@ function SearchANDListView() {
     setnewSearch(newSearch + 1);
   };
 
+  const setPrintResultsFunc = () => {
+    if (printResults == true) {
+      setPrintResults(false);
+    } else {
+      setPrintResults(true);
+    }
+  };
+
   return (
     <div>
-      <SearchComponent
-        setZip2={setZip2}
-        googleZip={zipCode}
-        setZip={setZip}
-        menCheckState={menCheckState}
-        womenCheckState={womenCheckState}
-        childrenCheckState={childrenCheckState}
-        healthcareCheckState={healthcareCheckState}
-        isreligiousCheckState={isreligiousCheckState}
-        typeOService={typeOService}
-        onhandleSearchClick={handleSearchClick}
-        oncheckboxmenchange={checkboxmenchange}
-        oncheckboxwomenchange={checkboxwomenchange}
-        oncheckboxhealthcarechange={checkboxhealthcarechange}
-        oncheckboxreligiouschange={checkboxreligiouschange}
-        oncheckboxchildrenchange={checkboxchildrenchange}
-        oncheckboxservicechange={checkboxservicechange}
-        onsearchNameChange={searchNameChange}
-        ononSearchZipChange={onSearchZipChange}
-      />
-      <FilteredListView
+      {printResults ? null : (
+        <SearchComponent
+          setZip2={setZip2}
+          googleZip={zipCode}
+          setZip={setZip}
+          menCheckState={menCheckState}
+          womenCheckState={womenCheckState}
+          childrenCheckState={childrenCheckState}
+          healthcareCheckState={healthcareCheckState}
+          isreligiousCheckState={isreligiousCheckState}
+          typeOService={typeOService}
+          onhandleSearchClick={handleSearchClick}
+          oncheckboxmenchange={checkboxmenchange}
+          oncheckboxwomenchange={checkboxwomenchange}
+          oncheckboxhealthcarechange={checkboxhealthcarechange}
+          oncheckboxreligiouschange={checkboxreligiouschange}
+          oncheckboxchildrenchange={checkboxchildrenchange}
+          oncheckboxservicechange={checkboxservicechange}
+          onsearchNameChange={searchNameChange}
+          ononSearchZipChange={onSearchZipChange}
+          setPrintResults={setPrintResultsFunc}
+          canPrint={canPrint}
+          nameSearchVal={nameSearchVal}
+        />
+      )}
+
+      <FilteredListCards
         zipCode2={zipCode2}
         setZip={setZip}
         setZip22={setZip22}
@@ -112,6 +140,10 @@ function SearchANDListView() {
         newSearch={newSearch}
         resetSearchState={resetSearchState}
         handleSearchClick={handleSearchClick}
+        printing={printResults}
+        setPrintResults={setPrintResultsFunc}
+        setPrintTrue={printButtonTrue}
+        setPrintFalse={printButtonFalse}
       />
     </div>
   );
