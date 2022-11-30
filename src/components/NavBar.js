@@ -28,7 +28,7 @@ function NavBar() {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   // eventually need an event occuring on log in page to change state, setToken removed for eslint purposes
-  const [token] = useState(true);
+  const [token] = useState(false);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
