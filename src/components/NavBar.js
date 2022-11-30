@@ -19,7 +19,6 @@ import Link from '@mui/material/Link';
 const pages = ['Sign Up', 'About'];
 const loggedin = ['Dashboard', 'Account', 'Logout'];
 const loggedout = ['Log In'];
-// TODO: Behavior when user clicks Logout. Should go to homepage, but also change user state.
 
 // Code for a drop down NavMenu is in here but not being used
 
@@ -171,7 +170,8 @@ function NavBar() {
                       <Link 
                         href={`/${loggedout}`} 
                         sx = {{color: 'black'}}
-                        underline = "none">
+                        underline = "none"
+                        >
                           {loggedout}
                         </Link>
                     </Typography>

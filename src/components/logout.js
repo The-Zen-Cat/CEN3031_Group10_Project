@@ -1,11 +1,27 @@
 import React from 'react';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
 
 const LogOut = () => {
     return (
         
-        <div>
-            <h1>Output goodbye message, include return to homepage link, change user status?</h1>
-        </div>
+        <Box sx={{ 
+            width: '100%', 
+            maxWidth: 1000, 
+            margin: 8, 
+            marginLeft: 14,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center'
+            }}>
+                <Grid>
+                    <Typography variant="h3" gutterBottom>
+                    Thank you for visiting The Homeless Helper!
+                    </Typography>
+                </Grid>
+            
+        </Box>
         
     );
 }
