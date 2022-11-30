@@ -20,6 +20,8 @@ const pages = ['Sign Up', 'About'];
 const loggedin = ['Dashboard', 'Account', 'Logout'];
 const loggedout = ['Log In'];
 
+// comment so I can open a new PR
+
 // Code for a drop down NavMenu is in here but not being used
 
 function NavBar() {
