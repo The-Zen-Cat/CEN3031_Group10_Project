@@ -12,7 +12,10 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import BasicSelect from './UserDropdown';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 function Copyright(props) {
   return (
@@ -35,8 +38,15 @@ export default function SignUp() {
     const data = new FormData(event.currentTarget);
     console.log({
       email: data.get('email'),
-      password: data.get('password')
+      password: data.get('password'),
+      userType: data.get('userType')
     });
+  };
+
+  const [userType, setUserType] = React.useState('');
+
+  const handleChange = (event) => {
+    setUserType(event.target.value);
   };
 
   return (
@@ -101,7 +111,21 @@ export default function SignUp() {
                 />
               </Grid>
               <Grid item xs={12}>
-                <BasicSelect />
+              <FormControl fullWidth>
+                <InputLabel id="userType">Type of User</InputLabel>
+                <Select
+                  labelId="userType"
+                  id="userType"
+                  value={userType}
+                  label="userType"
+                  name="userType"
+                  onChange={handleChange}
+                >
+                  <MenuItem value={"ResourceCoordinator"}>Resource Coordinator</MenuItem>
+                  <MenuItem value={"ServiceProvider"}>Service Provider</MenuItem>
+                  <MenuItem value={"ServiceBeneficiary"}>Service Beneficiary</MenuItem>
+                </Select>
+              </FormControl>
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel
