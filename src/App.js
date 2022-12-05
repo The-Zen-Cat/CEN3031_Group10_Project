@@ -13,7 +13,11 @@ import Dashboard from './components/dashboard';
 import Account from './components/account';
 import LogOut from './components/logout';
 
+import axios from 'axios';
+
 // UF Color Pallette: https://www.uff.ufl.edu/toolkit/branding-style/colors/
+
+axios.defaults.withCredentials = true;
 
 function App() {
   return (
