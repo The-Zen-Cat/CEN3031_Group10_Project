@@ -10,6 +10,9 @@ import About from './components/about';
 import { Helmet } from 'react-helmet';
 
 axios.defaults.withCredentials = true;
+import Dashboard from './components/dashboard';
+import Account from './components/account';
+import LogOut from './components/logout';
 
 // UF Color Pallette: https://www.uff.ufl.edu/toolkit/branding-style/colors/
 
@@ -20,8 +23,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="About" element={<About />} />
-        <Route path="SignUp" element={<SignUp />} />
-        <Route path="LogIn" element={<LogIn />} />
+        <Route path="Sign Up" element={<SignUp />} />
+        <Route path="Log In" element={<LogIn />} />
+        <Route path="Dashboard" element={<Dashboard />} />
+        <Route path="Account" element={<Account />} />
+        <Route path="LogOut" element={<LogOut />} />
       </Routes>
       <div className="application">
         <Helmet>
