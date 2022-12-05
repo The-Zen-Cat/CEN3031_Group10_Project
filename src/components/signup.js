@@ -45,9 +45,14 @@ export default function SignUp() {
     let paramsArray = {};
     paramsArray.username = data.get('email');
     paramsArray.password = data.get('password');
-    axios.get(`http://localhost:3001/api/signup`, {
-      params: { paramsArray }
-    });
+    axios
+      .get(`http://localhost:3001/api/signup`, {
+        params: { paramsArray }
+      })
+      .then((d) => {
+        console.log(d);
+        window.location.href = '/';
+      });
   };
 
   const [userType, setUserType] = React.useState('');

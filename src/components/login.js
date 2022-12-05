@@ -40,9 +40,14 @@ function LogIn() {
     let paramsArray = {};
     paramsArray.username = data.get('email');
     paramsArray.password = data.get('password');
-    axios.get(`http://localhost:3001/api/login`, {
-      params: { paramsArray }
-    });
+    axios
+      .get(`http://localhost:3001/api/login`, {
+        params: { paramsArray }
+      })
+      .then((d) => {
+        console.log(d);
+        window.location.href = '/';
+      });
   };
 
   return (
