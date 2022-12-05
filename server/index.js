@@ -77,23 +77,3 @@ app.listen(PORT, () => {
   //sets listening port & logs in console
   console.log(`Sever running on ${PORT}`);
 });
-
-let mongoose = require('mongoose'),
-  User = require('./model/accountModel');
-// var testUser = new User({
-//   username: 'jmar7778',
-//   password: 'Password',
-//   zipcode: '33952'
-// });
-
-// testUser.save(function (err) {
-//   if (err) throw err;
-// });
-
-User.findOne({ username: 'jmar777' }, function (err, user) {
-  if (err) throw err;
-  user.comparePass('Password', function (err, isMatch) {
-    if (err) throw err;
-    console.log('Testing correct password: ', isMatch);
-  });
-});
