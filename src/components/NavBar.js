@@ -17,7 +17,7 @@ import { useState } from 'react';
 import Link from '@mui/material/Link';
 
 const pages = ['Sign Up', 'About'];
-const loggedin = ['Dashboard', 'Account', 'Logout'];
+const loggedin = ['Dashboard', 'Account', 'Add Resources','Logout'];
 const loggedout = ['Log In'];
 
 // comment so I can open a new PR

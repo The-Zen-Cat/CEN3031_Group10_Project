@@ -8,6 +8,7 @@ import Home from './components/home';
 import About from './components/about';
 import Dashboard from './components/dashboard';
 import Account from './components/account';
+import AddResources from './components/AddResources';
 import LogOut from './components/logout';
 import {Helmet} from 'react-helmet';
 
@@ -24,6 +25,7 @@ function App() {
         <Route path = "Log In" element = {<LogIn />} />
         <Route path = "Dashboard" element = {<Dashboard />} />
         <Route path = "Account" element = {<Account />} />
+		<Route path = "Add Resources" element = {<AddResources />} />
         <Route path = "LogOut" element = {<LogOut />} />
       </Routes>
       <div className="application">
