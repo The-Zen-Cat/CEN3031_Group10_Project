@@ -16,6 +16,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import axios from 'axios';
 
 function Copyright(props) {
   return (
@@ -40,6 +41,12 @@ export default function SignUp() {
       email: data.get('email'),
       password: data.get('password'),
       userType: data.get('userType')
+    });
+    let paramsArray = {};
+    paramsArray.username = data.get('email');
+    paramsArray.password = data.get('password');
+    axios.get(`http://localhost:3001/api/signup`, {
+      params: { paramsArray }
     });
   };
 
@@ -111,21 +118,20 @@ export default function SignUp() {
                 />
               </Grid>
               <Grid item xs={12}>
-              <FormControl fullWidth>
-                <InputLabel id="userType">Type of User</InputLabel>
-                <Select
-                  labelId="userType"
-                  id="userType"
-                  value={userType}
-                  label="userType"
-                  name="userType"
-                  onChange={handleChange}
-                >
-                  <MenuItem value={"ResourceCoordinator"}>Resource Coordinator</MenuItem>
-                  <MenuItem value={"ServiceProvider"}>Service Provider</MenuItem>
-                  <MenuItem value={"ServiceBeneficiary"}>Service Beneficiary</MenuItem>
-                </Select>
-              </FormControl>
+                <FormControl fullWidth>
+                  <InputLabel id="userType">Type of User</InputLabel>
+                  <Select
+                    labelId="userType"
+                    id="userType"
+                    value={userType}
+                    label="userType"
+                    name="userType"
+                    onChange={handleChange}>
+                    <MenuItem value={'ResourceCoordinator'}>Resource Coordinator</MenuItem>
+                    <MenuItem value={'ServiceProvider'}>Service Provider</MenuItem>
+                    <MenuItem value={'ServiceBeneficiary'}>Service Beneficiary</MenuItem>
+                  </Select>
+                </FormControl>
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel

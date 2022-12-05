@@ -7,3 +7,5 @@ router.get('/logout', (req, res) => {
   });
   res.send('testmessage');
 });
+
+module.exports = router;

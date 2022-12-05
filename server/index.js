@@ -18,6 +18,7 @@ var cors = require('cors');
  */
 const oneDay = 1000 * 60 * 60 * 24;
 const session = require('express-session');
+const { Login } = require('@mui/icons-material');
 const sessionStore = MongoStore.create({ mongoUrl: process.env.MONGO_URI });
 
 connectDB();
@@ -33,6 +34,17 @@ app.use(logger);
 //Body Parser Middleware
 app.use(express.json());
 
+var whitelist = ['htpp://localhost:3000'];
+var corsOptions = {
+  credentials: true,
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+};
 //cors
 app.use(cors());
 
@@ -60,7 +72,32 @@ app.get('/', (req, res) => res.send('your base server url is working'));
 app.use('/api/filterResources', require('./routes/api/filterResources'));
 app.use('/api/manageResource', require('./routes/api/manageResource'));
 
+//
+app.use('/api/login', require('./routes/login'));
+app.use('/api/logout', require('./routes/logout'));
+app.use('/api/signup', require('./routes/signup'));
+
 app.listen(PORT, () => {
   //sets listening port & logs in console
   console.log(`Sever running on ${PORT}`);
+});
+
+let mongoose = require('mongoose'),
+  User = require('./model/accountModel');
+// var testUser = new User({
+//   username: 'jmar7778',
+//   password: 'Password',
+//   zipcode: '33952'
+// });
+
+// testUser.save(function (err) {
+//   if (err) throw err;
+// });
+
+User.findOne({ username: 'jmar777' }, function (err, user) {
+  if (err) throw err;
+  user.comparePass('Password', function (err, isMatch) {
+    if (err) throw err;
+    console.log('Testing correct password: ', isMatch);
+  });
 });

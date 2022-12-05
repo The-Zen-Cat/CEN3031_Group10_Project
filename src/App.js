@@ -2,14 +2,13 @@ import './App.css';
 import React from 'react';
 import NavBar from './components/NavBar';
 import { Routes, Route } from 'react-router-dom';
-import axios from 'axios';
+//import axios from 'axios';
 import SignUp from './components/signup';
 import LogIn from './components/login';
 import Home from './components/home';
 import About from './components/about';
 import { Helmet } from 'react-helmet';
 
-axios.defaults.withCredentials = true;
 import Dashboard from './components/dashboard';
 import Account from './components/account';
 import LogOut from './components/logout';
