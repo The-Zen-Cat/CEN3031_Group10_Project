@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {useState} from "react";
-import ReactDOM from 'react-dom';
 
 function AddResources() {
 
@@ -25,19 +24,19 @@ function AddResources() {
 
     //=== Event handlers ===
     // Form submit
-    const handleSubmit = (event) => {
+    //const handleSubmit = (event) => {
         // Submit the form here
-    };
+    //};
 
     //=== HTML to render ===
     return (
         <div className="AddResources">
             <header className="Add Resources">
-                <form onSubmit = {handleSubmit}>
+                <form >
                 Form to add resources goes here
                     <label>
                         Organization Name:
-                        <input type = "text" value={name} onChange={(e) => setName(e.target.value}/>
+                        <input type = "text" value={name} onChange={(e) => setName(e.target.value)}/>
                     </label>
                     <label>
                         Street:
@@ -109,3 +108,4 @@ function AddResources() {
         </div>
     );
 }
+export default AddResources;
