@@ -13,15 +13,23 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import HouseIcon from '@mui/icons-material/House';
 import gatorlogo from './images/gatorlogo.jpg';
+import { useState } from 'react';
+import Link from '@mui/material/Link';
 
-const pages = ['SignUp', 'LogIn', 'About'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-// Have Log In when user not logged in, and Account, Dashboard, Logout when logged in
+const pages = ['Sign Up', 'About'];
+const loggedin = ['Dashboard', 'Account', 'Logout'];
+const loggedout = ['Log In'];
+
+// comment so I can open a new PR
+
 // Code for a drop down NavMenu is in here but not being used
 
 function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  // eventually need an event occuring on log in page to change state, setToken removed for eslint purposes
+  const [token] = useState(true);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -129,27 +137,52 @@ function NavBar() {
                 <Avatar alt="Gator Logo" src={gatorlogo} />
               </IconButton>
             </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right'
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right'
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}>
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+          
+              <Menu
+                sx={{ mt: '45px' }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right'
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right'
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}>
+                {token 
+                ? loggedin.map((loggedin) => (
+                  <MenuItem key={loggedin} onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">
+                      <Link 
+                        href={`/${loggedin}`} 
+                        sx = {{color: 'black'}}
+                        underline = "none">
+                          {loggedin}
+                        </Link>
+                    </Typography>
+                  </MenuItem> 
+                ))
+                : loggedout.map((loggedout) => (
+                  <MenuItem key={loggedout} onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">
+                      <Link 
+                        href={`/${loggedout}`} 
+                        sx = {{color: 'black'}}
+                        underline = "none"
+                        >
+                          {loggedout}
+                        </Link>
+                    </Typography>
+                  </MenuItem> 
+                ))}
+                
+              </Menu>
+              
+      
           </Box>
         </Toolbar>
       </Container>
