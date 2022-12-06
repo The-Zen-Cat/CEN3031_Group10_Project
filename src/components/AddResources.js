@@ -1,9 +1,10 @@
 import * as React from 'react';
+import {useState} from "react";
 import ReactDOM from 'react-dom';
 
 function AddResources() {
 
-    // Form fields
+    //=== Form fields ===
     const [name, setName] = useState('');
     const [addressStreet, setAddressStreet] = useState('');
     const [addressCity, setAddressCity] = useState('');
@@ -22,103 +23,87 @@ function AddResources() {
     const [description, setDescription] = useState('');
     const [URL, setURL] = useState('');
 
+    //=== Event handlers ===
+    // Form submit
+    const handleSubmit = (event) => {
+        // Submit the form here
+    };
+
+    //=== HTML to render ===
     return (
         <div className="AddResources">
             <header className="Add Resources">
-                <form>
+                <form onSubmit = {handleSubmit}>
                 Form to add resources goes here
                     <label>
                         Organization Name:
-                        <input type = "text" value={name}/>
+                        <input type = "text" value={name} onChange={(e) => setName(e.target.value}/>
                     </label>
                     <label>
                         Street:
-                        <input type = "text" value={addressStreet}/>
+                        <input type = "text" value={addressStreet} onChange={(e) => setAddressStreet(e.target.value)}/>
                     </label>
                     <label>
                         City:
-                        <input type = "text" value={addressCity}/>
+                        <input type = "text" value={addressCity} onChange={(e) => setAddressCity(e.target.value)}/>
                     </label>
                     <label>
                         State:
-                        <input type = "text" value={addressState}/>
+                        <input type = "text" value={addressState} onChange={(e) => setAddressState(e.target.value)}/>
                     </label>
                     <label>
                         Zip:
-                        <input type = "text" value={addressZip}/>
+                        <input type = "text" value={addressZip} onChange={(e) => setAddressZip(e.target.value)}/>
                     </label>
                     <label>
                         Telephone Number:
-                        <input type = "text" value={phone}/>
+                        <input type = "text" value={phone} onChange={(e) => setPhone((e.target.value))}/>
                     </label>
                     <label>
                         Type of Organization:
-                        <input type = "text" value={orgType}/>
+                        <input type = "text" value={orgType} onChange={(e) => setOrgType(e.target.value)}/>
                     </label>
                     <label>
                         Accepts men?
-                        <select value={acceptMen}>
-                            <option value={true}>Yes</option>
-                            <option value={false}>No</option>
-                        </select>
+                        <input type = "checkbox" value={acceptMen} onChange={(e) => setAcceptMen(e.target.value)}/>
                     </label>
                     <label>
                         Accepts women?
-                        <select value={acceptWomen}>
-                            <option value={true}>Yes</option>
-                            <option value={false}>No</option>
-                        </select>
+                        <input type = "checkbox" value={acceptWomen} onChange={(e) => setAcceptWomen(e.target.value)}/>
                     </label>
                     <label>
                         Accepts minors?
-                        <select value={acceptchildren}>
-                            <option value={true}>Yes</option>
-                            <option value={false}>No</option>
-                        </select>
+                        <input type = "checkbox" value={acceptChildren} onChange={(e) => setAcceptChildren(e.target.value)}/>
                     </label>
                     <label>
                         Has religious services?
-                        <select value={religious}>
-                            <option value={true}>Yes</option>
-                            <option value={false}>No</option>
-                        </select>
+                        <input type = "checkbox" value={religious} onChange={(e) => setRelig(e.target.value)}/>
                     </label>
                     <label>
                         Offers food services?
-                        <select value={food}>
-                            <option value={true}>Yes</option>
-                            <option value={false}>No</option>
-                        </select>
+                        <input type = "checkbox" value={food} onChange={(e) => setFood(e.target.value)}/>
                     </label>
                     <label>
                         Offers healthcare services?
-                        <select value={health}>
-                            <option value={true}>Yes</option>
-                            <option value={false}>No</option>
-                        </select>
+                        <input type = "checkbox" value={health} onChange={(e) => setHealth(e.target.value)}/>
                     </label>
                     <label>
                         Offers clothing services?
-                        <select value={cloth}>
-                            <option value={true}>Yes</option>
-                            <option value={false}>No</option>
-                        </select>
+                        <input type = "checkbox" value={cloth} onChange={(e) => setCloth(e.target.value)}/>
                     </label>
                     <label>
                         Is a shelter?
-                        <select value={shelter}>
-                            <option value={true}>Yes</option>
-                            <option value={false}>No</option>
-                        </select>
+                        <input type = "checkbox" value={shelter} onChange={(e) => setShelter(e.target.value)}/>
                     </label>
                     <label>
                         Link:
-                        <input type = "text" value={URL}/>
+                        <input type = "text" value={URL} onChange={(e) => setURL(e.target.value)}/>
                     </label>
                     <label>
                         Enter a short description:
-                        <input type = "text" value={description}/>
+                        <input type = "text" value={description} onChange={(e) => setDescription(e.target.value)}/>
                     </label>
+                    <input type = "submit"/>
                 </form>
             </header>
         </div>
