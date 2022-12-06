@@ -2,7 +2,7 @@ import './App.css';
 import React from 'react';
 import NavBar from './components/NavBar';
 import { Routes, Route } from 'react-router-dom';
-//import axios from 'axios';
+
 import SignUp from './components/signup';
 import LogIn from './components/login';
 import Home from './components/home';
@@ -13,7 +13,11 @@ import Dashboard from './components/dashboard';
 import Account from './components/account';
 import LogOut from './components/logout';
 
+import AddResources from './components/AddResources';
+import { Helmet } from 'react-helmet';
+
 import axios from 'axios';
+
 
 // UF Color Pallette: https://www.uff.ufl.edu/toolkit/branding-style/colors/
 
@@ -31,6 +35,10 @@ function App() {
         <Route path="Dashboard" element={<Dashboard />} />
         <Route path="Account" element={<Account />} />
         <Route path="LogOut" element={<LogOut />} />
+
+        <Route path="AddResources" element={<AddResources />} />
+
+
       </Routes>
       <div className="application">
         <Helmet>
