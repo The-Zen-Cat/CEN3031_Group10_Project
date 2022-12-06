@@ -20,10 +20,10 @@ router.get('/', (req, res) => {
         console.log('logged in session ID:' + req.session.id);
         req.session.save((err) => {
           if (err) return this.next(err);
-          res.sendStatus(200);
+          res.status(200).json('Logged In!');
         });
       } else {
-        res.sendStatus(401);
+        res.sendStatus(401).json('Not Logged In!');
       }
     });
   });
