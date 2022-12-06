@@ -20,15 +20,10 @@ const pages = ['Sign Up', 'About'];
 const loggedin = ['AddResources', 'Logout'];
 const loggedout = ['Log In'];
 
-// comment so I can open a new PR
-
-// Code for a drop down NavMenu is in here but not being used
-
 function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  // eventually need an event occuring on log in page to change state, setToken removed for eslint purposes
   const [token] = useState(true);
 
   const handleOpenNavMenu = (event) => {
