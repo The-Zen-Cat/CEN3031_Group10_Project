@@ -35,9 +35,9 @@ export default function FilteredListView(propss) {
         )
         .then((response) => {
           console.log(response);
-          console.log(response.data.results[4].address_components[0].long_name);
-          propss.setZip(response.data.results[4].address_components[0].long_name);
-          propss.setZip22(response.data.results[4].address_components[0].long_name);
+          console.log(response.data.results[4].address_components[0].short_name);
+          propss.setZip(response.data.results[4].address_components[0].short_name);
+          propss.setZip22(response.data.results[4].address_components[0].short_name);
 
           //console.log(zipCode);
         });

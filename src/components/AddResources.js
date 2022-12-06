@@ -19,6 +19,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
 import AddResourceComplete from './addResourceComplete';
 
+//this adds a small copyright component to the bottom of the page (used below)
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -34,6 +35,9 @@ function Copyright(props) {
 
 const theme = createTheme();
 
+//this is a rather involved function to add resources to the database
+//this displays the form, accepts user input, and then sends a parameters object
+//the the express.js server via axios for addition to the database.
 export default function addResources() {
   const [added, setadded] = useState(false);
   const handleSubmit = (event) => {
@@ -95,6 +99,7 @@ export default function addResources() {
       isReligious = false;
     }
 
+    //this is the parameters array for adding resources to database via axios below
     var paramsArray = {
       name: data.get('name'),
       isFood: isFood,

@@ -10,11 +10,11 @@ const ResourceModel = require('../model/resourceModel'); //change this
  * @access Public
  */
 const getFilteredList = asyncHandler(async (req, res) => {
-  console.log(req);
-  console.log(req.query);
-  console.log('getting filtered list');
+  //console.log(req);
+  //console.log(req.query);
+  //console.log('getting filtered list');
   var findOptions = req.query;
-  console.log(findOptions.paramsArray);
+  //console.log(findOptions.paramsArray);
   const resources = await ResourceModel.find(findOptions.paramsArray);
   res.status(200).json(resources);
 });
@@ -25,10 +25,10 @@ const getFilteredList = asyncHandler(async (req, res) => {
  * @access Private
  */
 const addResource = asyncHandler(async (req, res) => {
-  console.log(req.query.paramsArray);
+  //console.log(req.query.paramsArray);
   var newResource1 = req.query.paramsArray;
-  console.log('New Resource! ');
-  console.log(newResource1);
+  //console.log('New Resource! ');
+  //console.log(newResource1);
   const newResource = await ResourceModel.create(newResource1);
   res.status(200).json(newResource);
 });
