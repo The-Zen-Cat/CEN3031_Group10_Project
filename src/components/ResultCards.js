@@ -21,6 +21,7 @@ import shelter from './images/shelter.jpg';
 //import goodwill from './images/goodwill.jpeg';
 import healthcare from './images/healthcare.jpeg';
 
+// eslint-disable-next-line
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
 }

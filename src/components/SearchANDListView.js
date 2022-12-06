@@ -78,7 +78,7 @@ function SearchANDListView() {
     setchildrenCheckState(!childrenCheckState);
     console.log(childrenCheckState);
   };
-
+  // eslint-disable-next-line
   const checkboxservicechange = (event: React.ChangeEvent<HTMLInputElement>) => {
     settypeOService(event.target.value);
     console.log(typeOService);
