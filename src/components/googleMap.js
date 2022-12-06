@@ -1,4 +1,7 @@
 import React from 'react';
+
+//this is to access the google maps API for embedded maps in a page
+//this is a code skeleton for future implementation of the feature
 const AddressMap = () => {
   return (
     <div className="google-map-code">
