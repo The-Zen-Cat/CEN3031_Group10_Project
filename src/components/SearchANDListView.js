@@ -78,8 +78,7 @@ function SearchANDListView() {
     setchildrenCheckState(!childrenCheckState);
     console.log(childrenCheckState);
   };
-
-  const checkboxservicechange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const checkboxservicechange = (event) => {
     settypeOService(event.target.value);
     console.log(typeOService);
   };

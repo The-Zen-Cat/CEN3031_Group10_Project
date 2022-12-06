@@ -7,6 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
 //import Avatar from '@mui/material/Avatar';
+// eslint-disable-next-line no-unused-vars
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 //import { red } from '@mui/material/colors';
@@ -21,11 +22,7 @@ import shelter from './images/shelter.jpg';
 //import goodwill from './images/goodwill.jpeg';
 import healthcare from './images/healthcare.jpeg';
 
-interface ExpandMoreProps extends IconButtonProps {
-  expand: boolean;
-}
-
-const ExpandMore = styled((props: ExpandMoreProps) => {
+const ExpandMore = styled((props) => {
   // eslint-disable-next-line no-unused-vars
   const { expand, ...other } = props;
   return <IconButton {...other} />;
