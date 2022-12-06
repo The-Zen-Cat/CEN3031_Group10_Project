@@ -9,6 +9,11 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 //import CardMedia from '@mui/material/CardMedia';
 
+/**
+ * @summary Logs User out and Renders the Post Log Out Screen
+ * @author Kathleen Tiley, Zachary Schirm, Thor Johansson
+ * @returns Post-Log Out Screen
+ */
 const LogOut = () => {
   React.useEffect(() => {
     axios

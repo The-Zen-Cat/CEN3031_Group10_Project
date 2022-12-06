@@ -35,6 +35,14 @@ function Copyright(props) {
 
 const theme = createTheme();
 
+/**
+ * On Sign Up, the handleSubmit function sends the user input to the database and stores a new user
+ * Displays error message is user info already exists in database or if a resource coordinator is already
+ * assigned to that zip code. Returns sign up successful page if sign up is successful
+ * @summary Renders Sign Up Page and Processes Sign Up
+ * @author Thor Johansson, Zachary Schirm, Kathleen Tiley
+ * @returns Sign Up Page
+ */
 export default function SignUp() {
   const [zipcodeclears, setzipcodeclears] = useState(false);
   const [zipCodeTaken, setZipCodeTaken] = useState(false);
