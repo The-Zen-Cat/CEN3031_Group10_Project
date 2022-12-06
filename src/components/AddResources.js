@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -19,6 +20,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
 import AddResourceComplete from './addResourceComplete';
 
+
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -31,6 +33,7 @@ function Copyright(props) {
     </Typography>
   );
 }
+
 
 const theme = createTheme();
 
@@ -301,6 +304,7 @@ export default function addResources() {
           <Copyright sx={{ mt: 5 }} />
         </Container>
       </ThemeProvider>
+
     );
   } else {
     return <AddResourceComplete />;
