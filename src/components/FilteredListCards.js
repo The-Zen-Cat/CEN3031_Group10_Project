@@ -75,9 +75,13 @@ export default function FilteredListCards(propss) {
     paramsArray.addressZip = parseInt(propss.zipCode);
     console.log(paramsArray);
     axios
-      .get(`http://localhost:3001/api/filterResources/`, {
-        params: { paramsArray } //TODO - THE DEFAULT FOR THIS SHOULD BE ZIP CODE (LOCATION BASED IN BROWSER)
-      })
+      .get(
+        `http://localhost:3001/api/filterResources/`,
+        {
+          params: { paramsArray }
+        },
+        { withCredentials: true } //TODO - THE DEFAULT FOR THIS SHOULD BE ZIP CODE (LOCATION BASED IN BROWSER)
+      )
       .then((response) => {
         console.log(response.data);
         setresArray([]);
@@ -134,9 +138,13 @@ export default function FilteredListCards(propss) {
     }
     console.log(paramsArray);
     axios
-      .get(`http://localhost:3001/api/filterResources/`, {
-        params: { paramsArray }
-      })
+      .get(
+        `http://localhost:3001/api/filterResources/`,
+        {
+          params: { paramsArray }
+        },
+        { withCredentials: true }
+      )
       .then((response) => {
         setresArray([]);
         for (let i = 0; i < response.data.length; i++) {

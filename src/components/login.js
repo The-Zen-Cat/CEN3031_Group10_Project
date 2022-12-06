@@ -41,9 +41,13 @@ function LogIn() {
     paramsArray.username = data.get('email');
     paramsArray.password = data.get('password');
     axios
-      .get(`http://localhost:3001/api/login`, {
-        params: { paramsArray }
-      })
+      .get(
+        `http://localhost:3001/api/login`,
+        {
+          params: { paramsArray }
+        },
+        { withCredentials: true }
+      )
       .then((d) => {
         console.log(d);
         window.location.href = '/';
