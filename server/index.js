@@ -79,6 +79,8 @@ app.use('/api/addResource', require('./routes/api/addResource'));
 app.use('/api/login', require('./routes/login'));
 app.use('/api/logout', require('./routes/logout'));
 app.use('/api/signup', require('./routes/signup'));
+app.use('/api/isloggedin', require('./routes/isloggedin'));
+app.use('/api/zipCheck', require('./routes/zipCheck'));
 
 app.listen(PORT, () => {
   //sets listening port & logs in console

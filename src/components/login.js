@@ -40,6 +40,7 @@ function LogIn() {
     let paramsArray = {};
     paramsArray.username = data.get('email');
     paramsArray.password = data.get('password');
+    console.log(paramsArray);
     axios
       .get(
         `http://localhost:3001/api/login`,

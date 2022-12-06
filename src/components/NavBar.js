@@ -15,6 +15,7 @@ import HouseIcon from '@mui/icons-material/House';
 import gatorlogo from './images/gatorlogo.jpg';
 import { useState } from 'react';
 import Link from '@mui/material/Link';
+import axios from 'axios';
 
 const pages = ['Sign Up', 'About'];
 const loggedin = ['AddResources', 'Logout'];
@@ -29,7 +30,21 @@ function NavBar() {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   // eventually need an event occuring on log in page to change state, setToken removed for eslint purposes
-  const [token] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  React.useEffect(() => {
+    axios.get(`http://localhost:3001/api/isloggedin`, { withCredentials: true }).then((d) => {
+      console.log(d);
+      //window.location.href = '/Log%In';
+      console.log(d.data);
+      var response = d.data;
+      if (response == 'Not logged in :-(') {
+        setIsLoggedIn(false);
+      } else {
+        setIsLoggedIn(true);
+      }
+    });
+  });
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -153,7 +168,7 @@ function NavBar() {
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}>
-              {token
+              {isLoggedIn
                 ? loggedin.map((loggedin) => (
                     <MenuItem key={loggedin} onClick={handleCloseUserMenu}>
                       <Typography textAlign="center">

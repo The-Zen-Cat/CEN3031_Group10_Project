@@ -6,6 +6,7 @@ var AccountSchema = new mongoose.Schema({
   username: { type: String, required: true, index: { unique: true } },
   password: { type: String, required: true },
   zipcode: { type: Number, required: true, min: 501, max: 99950 },
+  userType: { type: String, required: false },
   types: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Type' }]
 });
 

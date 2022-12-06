@@ -12,10 +12,12 @@ router.get('/', (req, res) => {
     if (!user) {
       res.sendStatus(401);
     } else {
+      console.log(user);
       let newUser = new AccountModel({
         username: signupQuery.username,
         password: signupQuery.password,
-        zipcode: 33952
+        zipcode: signupQuery.zipcode,
+        userType: signupQuery.userType
       });
       newUser.save(function (err) {
         //if (err) throw err;
