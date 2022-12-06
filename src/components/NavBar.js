@@ -17,7 +17,7 @@ import { useState } from 'react';
 import Link from '@mui/material/Link';
 
 const pages = ['Sign Up', 'About'];
-const loggedin = ['Dashboard', 'Account', 'Logout'];
+const loggedin = ['AddResources', 'Logout'];
 const loggedout = ['Log In'];
 
 // comment so I can open a new PR
@@ -137,52 +137,42 @@ function NavBar() {
                 <Avatar alt="Gator Logo" src={gatorlogo} />
               </IconButton>
             </Tooltip>
-          
-              <Menu
-                sx={{ mt: '45px' }}
-                id="menu-appbar"
-                anchorEl={anchorElUser}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right'
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right'
-                }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}>
-                {token 
+
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right'
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right'
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}>
+              {token
                 ? loggedin.map((loggedin) => (
-                  <MenuItem key={loggedin} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">
-                      <Link 
-                        href={`/${loggedin}`} 
-                        sx = {{color: 'black'}}
-                        underline = "none">
+                    <MenuItem key={loggedin} onClick={handleCloseUserMenu}>
+                      <Typography textAlign="center">
+                        <Link href={`/${loggedin}`} sx={{ color: 'black' }} underline="none">
                           {loggedin}
                         </Link>
-                    </Typography>
-                  </MenuItem> 
-                ))
+                      </Typography>
+                    </MenuItem>
+                  ))
                 : loggedout.map((loggedout) => (
-                  <MenuItem key={loggedout} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">
-                      <Link 
-                        href={`/${loggedout}`} 
-                        sx = {{color: 'black'}}
-                        underline = "none"
-                        >
+                    <MenuItem key={loggedout} onClick={handleCloseUserMenu}>
+                      <Typography textAlign="center">
+                        <Link href={`/${loggedout}`} sx={{ color: 'black' }} underline="none">
                           {loggedout}
                         </Link>
-                    </Typography>
-                  </MenuItem> 
-                ))}
-                
-              </Menu>
-              
-      
+                      </Typography>
+                    </MenuItem>
+                  ))}
+            </Menu>
           </Box>
         </Toolbar>
       </Container>

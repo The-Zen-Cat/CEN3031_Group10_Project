@@ -38,6 +38,7 @@ app.get('/', (req, res) => res.send('your base server url is working'));
 //filterresources route
 app.use('/api/filterResources', require('./routes/api/filterResources'));
 app.use('/api/manageResource', require('./routes/api/manageResource'));
+app.use('/api/addResource', require('./routes/api/addResource'));
 
 app.listen(PORT, () => {
   //sets listening port & logs in console
