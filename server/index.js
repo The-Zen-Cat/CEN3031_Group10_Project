@@ -14,8 +14,7 @@ const MongoStore = require('connect-mongo');
 var cors = require('cors');
 
 /**
- * basic session implementation basic
- * @todo clean this up
+ * set up variables for the session store
  */
 const oneDay = 1000 * 60 * 60 * 24;
 const session = require('express-session');
@@ -37,12 +36,16 @@ app.use(express.json());
 //cors
 app.use(cors());
 
+//configure cors for sessionware
 const corsConfig = {
   credentials: true,
   origin: true
 };
 app.use(cors(corsConfig));
 
+/**
+ * setup headers for session implementation
+ */
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', req.headers.origin);
   res.header('Access-Control-Allow-Credentials', true);

@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 
+/**
+ * Resorce model
+ */
 const resourceModel = mongoose.Schema(
   {
     name: { type: String, required: true },
