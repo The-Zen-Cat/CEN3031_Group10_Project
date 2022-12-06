@@ -14,14 +14,12 @@ import Account from './components/account';
 import LogOut from './components/logout';
 
 import AddResources from './components/AddResources';
-import { Helmet } from 'react-helmet';
 
 import axios from 'axios';
 
-
 // UF Color Pallette: https://www.uff.ufl.edu/toolkit/branding-style/colors/
 
-axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = false;
 
 function App() {
   return (
@@ -37,8 +35,6 @@ function App() {
         <Route path="LogOut" element={<LogOut />} />
 
         <Route path="AddResources" element={<AddResources />} />
-
-
       </Routes>
       <div className="application">
         <Helmet>

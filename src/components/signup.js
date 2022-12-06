@@ -46,9 +46,13 @@ export default function SignUp() {
     paramsArray.username = data.get('email');
     paramsArray.password = data.get('password');
     axios
-      .get(`http://localhost:3001/api/signup`, {
-        params: { paramsArray }
-      })
+      .get(
+        `http://localhost:3001/api/signup`,
+        {
+          params: { paramsArray }
+        },
+        { withCredentials: true }
+      )
       .then((d) => {
         console.log(d);
         window.location.href = '/Log%In';
