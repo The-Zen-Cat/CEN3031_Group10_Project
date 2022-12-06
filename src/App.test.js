@@ -7,3 +7,7 @@ import App from './App';
 //   const linkElement = screen.getByText(/learn react/i);
 //   expect(linkElement).toBeInTheDocument();
 // });
+
+test('dummy jest script', () => {
+  expect(true).toBe(true);
+});
