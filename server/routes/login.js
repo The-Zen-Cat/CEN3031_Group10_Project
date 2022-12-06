@@ -6,8 +6,6 @@ const AccountModel = require('../model/accountModel');
  * Login request that sets the active session to the user that logged in
  * Note, this does a check against the database and currently is not sql safe
  * @summary Sets session based on login
- * @param {string} username - The username
- * @param {string} password - the password to check against the database
  * @author Thor Johansson
  */
 router.get('/', (req, res) => {
