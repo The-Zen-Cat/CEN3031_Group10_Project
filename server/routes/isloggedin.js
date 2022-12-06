@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
-//const AccountModel = require('../model/accountModel');
-//const session = require('express-session');
+
+/**
+ * Api call from the website to check logged in status of a user
+ * @author Zachary Schirm
+ */
 router.get('/', (req, res) => {
   console.log('is logged in TEST: ', req.session.loggedIn);
   console.log('session id: ', req.session.id);
