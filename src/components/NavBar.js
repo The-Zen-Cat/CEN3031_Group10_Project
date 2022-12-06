@@ -18,14 +18,14 @@ import Link from '@mui/material/Link';
 import axios from 'axios';
 
 const pages = ['Sign Up', 'About'];
-const loggedin = ['AddResources', 'Logout'];
+const loggedin = ['AddResources', 'LogOut'];
 const loggedout = ['Log In'];
 
 // comment so I can open a new PR
 
 // Code for a drop down NavMenu is in here but not being used
 
-function NavBar() {
+function NavBar(propss) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -44,7 +44,7 @@ function NavBar() {
         setIsLoggedIn(true);
       }
     });
-  });
+  }, [propss.loggedInStatusChange]);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);

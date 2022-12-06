@@ -42,13 +42,10 @@ function LogIn() {
     paramsArray.password = data.get('password');
     console.log(paramsArray);
     axios
-      .get(
-        `http://localhost:3001/api/login`,
-        {
-          params: { paramsArray }
-        },
-        { withCredentials: true }
-      )
+      .get(`http://localhost:3001/api/login`, {
+        params: { paramsArray },
+        withCredentials: true
+      })
       .then((d) => {
         console.log(d);
         window.location.href = '/';

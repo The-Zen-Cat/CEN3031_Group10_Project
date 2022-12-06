@@ -5,12 +5,13 @@ const AccountModel = require('../model/accountModel');
 router.get('/', (req, res) => {
   if (!req.session.loggedIn);
   let signupQuery = req.query.paramsArray;
-  console.log(signupQuery.username);
-  AccountModel.find({ username: signupQuery.usename }, (err, user) => {
+  console.log('input user name: ' + signupQuery.username);
+
+  AccountModel.find({ username: signupQuery.username }, (err, user) => {
     if (err) throw err;
     console.log(user);
-    if (!user) {
-      res.sendStatus(401);
+    if (user.length >= 1) {
+      res.status(200).json('user already exists');
     } else {
       console.log(user);
       let newUser = new AccountModel({
@@ -23,7 +24,7 @@ router.get('/', (req, res) => {
         //if (err) throw err;
         console.log(err);
       });
-      res.sendStatus(200);
+      res.status(200).json('sign up successful');
     }
   });
 });
