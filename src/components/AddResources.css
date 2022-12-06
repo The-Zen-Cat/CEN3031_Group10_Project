@@ -1,0 +1,39 @@
+.form-box{
+    padding: 1rem;
+    background-color: rgb(247, 246, 246);
+    border: 4px solid rgb(158, 158, 158);
+    margin: 2rem;
+    padding: 2rem;
+    width: 30rem;
+    max-width: 35%;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+    position: center;
+}
+
+.form-box h1{
+    font-size: 35px ;
+    text-align: center;
+    color: #F55A00;
+    margin: 0 0 .5vh 0;
+}
+
+.form-box label{
+    display: block;
+    text-align: left;
+    font-size: 20px;
+    margin: 0 0 2vh 0;
+}
+
+.form-box input, textarea{
+    display: block;
+    width: 100%;
+    padding: .5rem .8rem .5rem .8rem;
+    margin: .9vw 0 ;
+    border:0;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.form-box textarea{
+    height: 15vh;
+}
