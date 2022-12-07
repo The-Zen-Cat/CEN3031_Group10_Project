@@ -17,6 +17,12 @@ import Button from '@mui/material/Button';
 
 import ResultCard from './ResultCards.js';
 
+//this component will display a filtered list of cards to the user
+//this component receives input from the searchcomponent and uses that
+//to perform an axios get request to receive the components from the database
+//this also has a call to the google maps api that will automatically pull
+//the user's zip code based on their latitude and longitude
+//finally, there are functions to allow the user to print
 export default function FilteredListCards(propss) {
   const didMount = React.useRef(false);
   const [resArray, setresArray] = useState([1, 2, 3]);
@@ -36,6 +42,8 @@ export default function FilteredListCards(propss) {
     propss.setPrintResults();
   };
 
+  //this is the call to the google maps api to get the user's zip code based
+  //on browser supplied latitude and longitude
   React.useEffect(() => {
     if (!didMount.current) {
       didMount.current = true;
@@ -50,7 +58,7 @@ export default function FilteredListCards(propss) {
       lon = position.coords.longitude;
       axios
         .get(
-          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=AIzaSyBkW9_W0_3RA0eJ7zddGbVj667mZe--cPM`,
+          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=/**insert key here*/`,
           {}
         )
         .then((response) => {
@@ -138,13 +146,9 @@ export default function FilteredListCards(propss) {
     }
     console.log(paramsArray);
     axios
-      .get(
-        `http://localhost:3001/api/filterResources/`,
-        {
-          params: { paramsArray }
-        },
-        { withCredentials: true }
-      )
+      .get(`http://localhost:3001/api/filterResources/`, {
+        params: { paramsArray }
+      })
       .then((response) => {
         setresArray([]);
         for (let i = 0; i < response.data.length; i++) {
@@ -166,6 +170,7 @@ export default function FilteredListCards(propss) {
     //console.log(resArray);
   }, [resArray]);
 
+  //If the page is currently loading, it will display the following placeholder page
   if (isLoading) {
     return (
       <Grid container justifyContent="center">
@@ -178,6 +183,7 @@ export default function FilteredListCards(propss) {
         </Card>
       </Grid>
     );
+    //if the page has no resources for a given search, it will display the following:
   } else if (resArray.length == 0) {
     propss.setPrintFalse();
     return (
@@ -196,10 +202,11 @@ export default function FilteredListCards(propss) {
         </Card>
       </Grid>
     );
+    //if results obtained from search, we active the print button!
   } else if (resArray.length > 1) {
     propss.setPrintTrue();
   }
-
+  //if the user clicks print button, this will active browser print panel call
   const printTheStuff = () => {
     window.print();
   };
