@@ -18,6 +18,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 //import Select from '@mui/material/Select';
 //import axios from 'axios';
 
+//this is a function to add a small copyright area of text at the bottom of the page
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -33,6 +34,9 @@ function Copyright(props) {
 
 const theme = createTheme();
 
+//this component displays when a resource has been successfully added by a resource manager
+//It notifies the user that it was successful, and gives the navigation options to add
+//another resource or Return to the Home Page.
 export default function AddResourceComplete() {
   return (
     <ThemeProvider theme={theme}>
