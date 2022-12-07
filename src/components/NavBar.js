@@ -17,19 +17,21 @@ import { useState } from 'react';
 import Link from '@mui/material/Link';
 import axios from 'axios';
 
+// Arrays holding lists of pages to display based on location in bar and user log in status
 const pages = ['Sign Up', 'About'];
 const loggedin = ['AddResources', 'LogOut'];
 const loggedout = ['Log In'];
 
-// comment so I can open a new PR
-
-// Code for a drop down NavMenu is in here but not being used
+/** Renders the Navigation Bar with Drop Down Menu on Left side
+ * Display changes based on user log in status
+ * @summary Interactive Navigation Bar
+ * @author Kathleen Tiley, Zachary Schirm
+ */
 
 function NavBar(propss) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  // eventually need an event occuring on log in page to change state, setToken removed for eslint purposes
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   React.useEffect(() => {

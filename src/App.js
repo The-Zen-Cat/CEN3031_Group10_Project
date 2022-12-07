@@ -21,6 +21,12 @@ import axios from 'axios';
 
 axios.defaults.withCredentials = false;
 
+/**
+ * Renders Navigation Bar, background and performs routing
+ * @summary Renders website aspects common to all pages
+ * @author Kathleen Tiley, Thor Johansson
+ */
+
 function App() {
   return (
     <>

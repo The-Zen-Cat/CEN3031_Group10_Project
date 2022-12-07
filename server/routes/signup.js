@@ -1,7 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const AccountModel = require('../model/accountModel');
-
+/**
+ * Creates account from information sent from the website
+ * Password encryption is embedded within the model
+ * @version 1.1
+ * @author Thor Johansson, Zachary Schirm
+ */
 router.get('/', (req, res) => {
   if (!req.session.loggedIn);
   let signupQuery = req.query.paramsArray;

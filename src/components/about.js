@@ -8,7 +8,11 @@ import zach from './images/zach.png';
 import kathleen from './images/kathleen.png';
 import ben from './images/ben.png';
 
-
+/**
+ * @summary Renders About Page
+ * @author Kathleen Tiley
+ * @returns Grid display of images and text
+ */
 const About = () => {
     return (
         <div>
@@ -64,7 +68,7 @@ const About = () => {
         </Grid>
         <Grid container justifyContent="center">
             <Card>
-                <CardContent sx={{margin: 1, minWidth: 800, maxWidth: 800}}>
+                <CardContent sx={{margin: 1, minWidth: 300, maxWidth: 300}}>
                     <h3>About Us</h3>
                     <p>We are an innovative group of software engineers excited to help connect people with the resources they need!
                         We hope you enjoy using the Homeless Helper as much as we have enjoyed designing it. The Homeless Helper grew

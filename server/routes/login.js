@@ -1,7 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const AccountModel = require('../model/accountModel');
-//const session = require('express-session');
+
+/**
+ * Login request that sets the active session to the user that logged in
+ * Note, this does a check against the database and currently is not sql safe
+ * @summary Sets session based on login
+ * @author Thor Johansson
+ */
 router.get('/', (req, res) => {
   console.log('is logged in: ', req.session.loggedIn);
   console.log('username: ', req.session.id);

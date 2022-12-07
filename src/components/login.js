@@ -30,6 +30,12 @@ function Copyright(props) {
 
 const theme = createTheme();
 
+/**
+ * User inputted log in info is sent to the database for verification, log in status is stored
+ * @summary Renders the Log in Page and Communicates With Database
+ * @author Thor Johansson, Kathleen Tiley
+ * @returns Log In page and Successful Sign in Page
+ */
 function LogIn() {
   const [isloggedin, setisloggedin] = useState(false);
   const handleSubmit = (event) => {
