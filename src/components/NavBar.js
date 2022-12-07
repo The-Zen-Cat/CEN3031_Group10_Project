@@ -23,10 +23,10 @@ const loggedin = ['AddResources', 'LogOut'];
 const loggedout = ['Log In'];
 
 /** Renders the Navigation Bar with Drop Down Menu on Left side
-   * Display changes based on user log in status
-   * @summary: Interactive Navigation Bar
-   * @author: Kathleen Tiley, Zachary Schirm
-   */
+ * Display changes based on user log in status
+ * @summary Interactive Navigation Bar
+ * @author Kathleen Tiley, Zachary Schirm
+ */
 
 function NavBar(propss) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
